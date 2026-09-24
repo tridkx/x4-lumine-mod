@@ -23,6 +23,14 @@ candidate settings:
   * which vertices the source's leg actually owns, so the skirt check is real
 
     python tools/diag_damp.py
+
+STATUS: this reports the *planar* distance between a bone's target and the
+mean of the vertices it drives.  That number is not by itself the animation
+error -- a joint can sit off its geometry in Y as well, and the geometry moves
+with the target when the mesh is rebuilt -- so treat it as a relative
+comparison between candidate settings, not as a pass/fail.  The numbers that
+were actually used to fix the catwalk come from `measure_legs.py` (a built
+asset, measured in Blender) and `check_damp.py`.
 """
 
 import os
@@ -60,7 +68,6 @@ def make_adapter(values):
 
 
 def run(pos, par, x4, values, uniform=None):
-    bmap = build_bone_map.__wrapped__ if False else None
     ad = make_adapter(values)(BONE_MAP)
     if uniform is not None:
         ad.LATERAL_DAMP = {b: uniform for b in (

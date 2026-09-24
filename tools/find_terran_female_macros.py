@@ -60,10 +60,12 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
 
+import ws_paths
+
 #: every library that can declare an NPC macro, in load order
 SOURCES = [
-    r"D:\dsh-x4\work\vanilla\libraries\character_macros.xml",
-    r"D:\dsh-x4\work\dlc_terran\libraries\character_macros.xml",
+    ws_paths.vanilla('libraries', 'character_macros.xml'),
+    ws_paths.dlc_terran('libraries', 'character_macros.xml'),
 ]
 
 #: factions whose members are explicitly *not* the NPCs we are replacing
@@ -95,9 +97,8 @@ def parse_library(path):
 
 #: appearance-pool libraries, in load order
 GROUP_SOURCES = [
-    r"D:\dsh-x4\work\vanilla\libraries\charactergroups.xml",
-] + sorted(glob.glob(
-    r"D:\dsh-x4\work\dlc_all\*\libraries\charactergroups.xml"))
+    ws_paths.vanilla('libraries', 'charactergroups.xml'),
+] + sorted(glob.glob(ws_paths.dlc_all('*', 'libraries', 'charactergroups.xml')))
 
 
 def load_pools():

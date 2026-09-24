@@ -41,8 +41,9 @@ import xml.etree.ElementTree as ET
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
 WORK = os.path.join(PROJ, 'work')
-GAME = r"D:\dsh-x4\work"
-VANILLA = os.path.join(GAME, 'vanilla')
+import ws_paths
+GAME = ws_paths.GAMEDATA
+VANILLA = ws_paths.vanilla()
 RETARGET_TOOLS = r"D:\dsh-x4\x4-character-retarget\tools"
 sys.path.insert(0, RETARGET_TOOLS)
 sys.path.insert(0, HERE)

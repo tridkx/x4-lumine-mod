@@ -100,8 +100,11 @@ MACRO_HEAD = None
 MACRO_BODY = None
 
 #: unpacked game libraries, in load order -- the same roots
-#: find_terran_female_macros.py uses, so both tools see one merged tree
-GAME = r"D:\dsh-x4\work"
+#: find_terran_female_macros.py uses, so both tools see one merged tree.
+#: Resolved by tools/ws_paths.py rather than spelled out: the workspace's
+#: work tree has already moved once.
+import ws_paths
+GAME = ws_paths.GAMEDATA
 MACRO_SOURCES = [
     os.path.join(GAME, 'vanilla', 'libraries', 'character_macros.xml'),
 ] + sorted(glob.glob(os.path.join(GAME, 'dlc_all', '*', 'libraries',

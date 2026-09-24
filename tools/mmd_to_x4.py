@@ -395,28 +395,51 @@ class MmdAdapter:
     #:
     #: i.e. the source's legs taper *inwards* (ankles 11.7 cm apart) while the
     #: X4 bind pose splays *outwards* (ankles 35.4 cm apart).  Matching the leg
-    #: bones outright therefore swings the whole leg out: the foot+toe geometry
-    #: measured 23.0 cm wide in the source and 46.7 cm after retargeting -- the
-    #: model would stand in a wide A with its legs out of the skirt.
+    #: bones outright would swing the whole leg out -- the model standing in a
+    #: wide A with its legs out of the skirt -- so only part of the **sideways**
+    #: travel is kept (the vertical is left alone, so leg length and ground
+    #: contact are untouched).
     #:
-    #: Keeping only part of the **sideways** component (the vertical is left
-    #: alone, so leg length and ground contact are untouched) brings the feet
-    #: back to ~28 cm.  The cost is that the foot geometry no longer sits on
-    #: `Bip01 L Foot`, so sideways animation of the leg moves it slightly off;
-    #: a hidden few centimetres beat a visible splay.  This is the same
-    #: trade-off the previous project made (it used 0.30/0.18/0.12 against a
-    #: 6 cm source stance); the numbers differ because this model's stance
-    #: already matches the X4 hip width -- only the *taper* is wrong.
+    #: The first version tapered *along* the chain -- 0.60 thigh, 0.30 calf,
+    #: 0.20 foot -- and that is what made the character walk as if on a line.
+    #: Tapering along the chain does not just shift the leg, it bends the bone
+    #: chain inwards, and the joints end up inside the geometry they drive:
+    #:
+    #:     bone            X4 bind    old targets   geometry it drives
+    #:     Bip01 L Thigh    +11.61      +10.62            +10.76
+    #:     Bip01 L Calf     +14.81       +9.75             +8.79
+    #:     Bip01 L Foot     +17.70       +8.21             +8.99
+    #:     Bip01 L Toe0     +21.50       +9.05             +9.84
+    #:
+    #: The binding pose still looked right (the geometry was built from those
+    #: very targets) but the ankle joint sat 7 cm inside the foot it carries
+    #: and the whole leg was 16.4 cm wide at the ankles -- **under half** of
+    #: vanilla's 39.8 cm -- so a stride put the feet on one line: the "catwalk"
+    #: and the "sitting with the feet almost touching" report are the same
+    #: number.  (The source is not at fault: its own leg bones sit 0.7-1.0 cm
+    #: from the geometry they drive.)
+    #:
+    #: Keeping a larger, fairly uniform share restores the splay and keeps each
+    #: joint on its own geometry.  The foot needs slightly more than the thigh
+    #: because the ankle is where the source tapers most (5.84 against the X4
+    #: 17.70); measured after the rebuild: ankle joints 14.2 cm out, feet 27.9
+    #: cm apart, every joint within ~2 cm of the geometry it drives, and the
+    #: bone chain still splaying monotonically outwards (thigh 11.39, calf
+    #: 12.15, foot 14.20) instead of folding back in at the knee.
+    #:
+    #: Still well inside the skirt: its narrowest ring (z 40-50) is 24.3 cm
+    #: half-width, the wide part 36-42 cm, and this model's leg geometry is
+    #: hidden above z = 42 anyway.
     #:
     #: Both the translation and the axis direction read these targets, so
-    #: lowering them moves position and orientation together (see
+    #: changing them moves position and orientation together (see
     #: `retarget_core._pair_axis.target_dir`, which is the bug that tore one
     #: earlier project's knees apart).
     LATERAL_DAMP = {
         'Bip01 L Thigh': 0.60, 'Bip01 R Thigh': 0.60,
-        'Bip01 L Calf': 0.30, 'Bip01 R Calf': 0.30,
-        'Bip01 L Foot': 0.20, 'Bip01 R Foot': 0.20,
-        'Bip01 L Toe0': 0.20, 'Bip01 R Toe0': 0.20,
+        'Bip01 L Calf': 0.65, 'Bip01 R Calf': 0.65,
+        'Bip01 L Foot': 0.72, 'Bip01 R Foot': 0.72,
+        'Bip01 L Toe0': 0.72, 'Bip01 R Toe0': 0.72,
     }
 
     def adjust_target(self, x4_bone, src_pos, dst_pos):

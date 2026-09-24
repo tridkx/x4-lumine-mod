@@ -80,14 +80,23 @@ XRCatTool.exe -in work/x4_lumine_terran_add -out work/x4_lumine_terran_add/ext_0
 **关节处的残余撕裂**（脚腕、肩臂、手肘）。根因是源骨架与 X4 骨架的脊柱/腿长比例
 不同，而"给骨链共享位移"的修法会引入更明显的弯折，已回退。详见文档 §3.12。
 
+## v1.3 修了什么
+
+**走路像猫步、坐姿两脚贴得很近。** 原因是腿部横向收窄按骨链逐级打折
+（大腿 0.60 / 小腿 0.30 / 脚 0.20），把骨链**折向了内侧**：两脚间距只有
+16.4 cm（几何 18.0 cm），不到 vanilla 39.8 cm 的一半，走一步两只脚就上了一条线。
+改成温和的整腿收窄（0.60 / 0.65 / 0.72）后，骨链恢复外撇，实测两脚间距
+**30.5 cm**、脚踝骨与脚部几何的偏差从 7.06 cm 降到 **2.47 cm**。
+详见文档 §九。
+
 ## 版本与文件
 
 发布包由工作区的 `work/build_release.py` 统一生成，文件名写清配置：
 
 ```
-x4_lumine_terran_add_v1.2.zip      泰伦/先驱者女性 · 加入外观池（推荐）
-x4_lumine_terran_replace_v1.2.zip  泰伦女性 · 全部替换（含剧情 NPC）
-x4_lumine_argon_add_v1.2.zip       阿贡女性 · 加入外观池
+x4_lumine_terran_add_v1.3.zip      泰伦/先驱者女性 · 加入外观池（推荐）
+x4_lumine_terran_replace_v1.3.zip  泰伦女性 · 全部替换（含剧情 NPC）
+x4_lumine_argon_add_v1.3.zip       阿贡女性 · 加入外观池
 ```
 
 ## 版权

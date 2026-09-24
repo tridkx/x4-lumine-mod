@@ -3,7 +3,15 @@
 **Mod name**: `Lumine (Genshin Impact) - Terran Female NPC Replacer`
 
 **Summary / tagline** (one line for the mod card):
-`Genshin Impact's Lumine replaces the Terran female NPC models in X4: Foundations.`
+`Genshin Impact's Lumine joins (or replaces) the Terran female NPC models in X4: Foundations.`
+
+**Three files, three shapes** -- pick one; the file name says which is which:
+* `x4_lumine_terran_add_v1.2.zip` -- **add** (the normal build): Lumine joins the
+  Terran and Pioneer female appearance pools as one more random candidate.
+* `x4_lumine_terran_replace_v1.2.zip` -- **replace** (test build): every Terran
+  woman becomes Lumine, story and mission NPCs included.
+* `x4_lumine_argon_add_v1.2.zip` -- the same model for the **Argon** pools
+  instead. Can be installed alongside the Terran one.
 
 ---
 
@@ -12,23 +20,52 @@
 ```
 Lumine (Genshin Impact) - Terran Female NPC Replacer
 
-Replaces the Terran female NPC models in X4: Foundations with Lumine from
-Genshin Impact. Built the standard X4 way -- swap the meshes, keep the
-skeleton -- so it rides the vanilla shared rig and the full shared animation
-set and modifies no game files.
+Brings Lumine from Genshin Impact into X4: Foundations as a Terran-race female
+NPC model. Built the standard X4 way -- swap the meshes, keep the skeleton --
+so it rides the vanilla shared rig and the full shared animation set and
+modifies no game files.
+
+There are three downloads of this mod. Pick one; do not install two that target
+the same pools.
+
+
+WHICH FILE DO I WANT?
+
+  x4_lumine_terran_add_v1.2.zip    <- normal play, start here
+    Lumine JOINS the Terran and Pioneer female appearance pools as one more
+    random candidate: 12 pools (six each). Every vanilla model is left in
+    place, so the other women keep their own faces, names and voices. She is
+    about one in four of the women a pool spawns -- raise the number with
+    --weight 2 if you want her about two in five.
+    Story and mission NPCs never come from an appearance pool, so they keep
+    their vanilla appearance.
+
+  x4_lumine_terran_replace_v1.2.zip
+    Lumine REPLACES all 45 Terran-race female NPC macros outright: every Terran
+    and Pioneer woman you meet is her, story and mission NPCs included. This is
+    the build for inspecting the model everywhere at once.
+
+  x4_lumine_argon_add_v1.2.zip
+    The same model, written into the Argon female pools (6 of them) instead of
+    the Terran ones. Meshes, textures and materials are identical -- both races
+    share the same body component -- so this file exists purely so Argon women
+    can roll Lumine too. It can be installed together with the Terran build.
+    Note: it competes for the same pools as the other Argon appearance mods
+    (Rose, Emilie, ...), so whichever loads last is what you see.
 
 
 VERSION
-  1.0
+  1.2 (all three)
 
 GAME VERSION
   X4: Foundations 9.00 (built and tested on 9.00)
-  Requires the Cradle of Humanity DLC -- that is where the Terran race is.
+  The Terran builds require the Cradle of Humanity DLC -- that is where the
+  Terran race is. The Argon build does not.
 
 
 INSTALLATION
 
-  1. Download x4_lumine_mod_v1.0.zip
+  1. Download the zip you want.
 
   2. Unpack it into the game's extensions folder, so you end up with:
 
@@ -42,11 +79,15 @@ INSTALLATION
 
   4. Load a save or start a new one and look at a Terran or Pioneer woman.
      Terran space (Segaris, Mars, the Moon, Getsu Fune) and Pioneer stations
-     are the places to go.
+     are the places to go. With the Argon build, any station with Argon women
+     will do.
 
   Note: an NPC's appearance is decided when it is created, so NPCs already
-  standing in front of you will not change. Move to an area with Terran women,
-  or reload, and they will.
+  standing in front of you will not change. Move to an area with the right
+  women, or reload, and they will.
+
+  The builds write the same file names, so switching means replacing the folder
+  contents -- not merging them.
 
 
 UNINSTALLATION
@@ -56,26 +97,40 @@ UNINSTALLATION
   way.
 
 
-WHAT EXACTLY GETS REPLACED
+WHAT EXACTLY GETS CHANGED
 
-  All Terran-race women, and that is a precisely defined set rather than "the
-  ones that look Terran":
+  ADD build (the default shape)
 
-  - Every appearance pool for the Terran and Pioneer factions.
-  - Plus the story and mission characters that are referenced directly by
-    scripts and never appear in any pool.
+    One new NPC macro is appended -- it inherits the vanilla base macro, so her
+    race/gender identification, eye positions and face-shaping all still run --
+    and one line is added to each of the 12 Terran and Pioneer female
+    appearance pools:
 
-  The 45 affected NPC macros were selected by resolving each candidate's
-  race / gender / faction through its inheritance chain, not by matching names
-  -- the names are misleading in both directions (see the engineering log if
-  you care about the details).
+      civilian, manager, marine, pilot, service, factiondiplomat
+      (six for the Terran faction, six for the Pioneers)
 
-  Their identities are untouched: names, job titles, backgrounds and voice
-  sets still vary normally. Only the body changes.
+    With the Argon build it is the same macro pointed at the Argon base, and
+    the six Argon female pools:
 
-  NOT replaced: Argon women, Yaki women (they are Argon-race), and the player's
-  own character. If you want Argon women replaced too, run one of the Argon
-  replacers alongside this -- the two do not conflict.
+      civilian, commander, marine, pilot, service, factiondiplomat
+
+    Not a single vanilla macro and not a single existing pool entry is removed.
+    The pool lists are read from the game itself, so a pool added by a DLC is
+    picked up rather than missed.
+
+  REPLACE build
+
+    All 45 Terran-race female NPC macros have their head and torso models
+    re-pointed at Lumine. That set is defined by data, not by names: for every
+    candidate macro the project resolves race / gender / faction through its
+    inheritance chain, and also includes every macro reachable from the Terran
+    and Pioneer female pools -- which is how the story and mission characters
+    that never appear in a pool end up covered.
+
+    Their identities are untouched: names, job titles, backgrounds and voice
+    sets still vary normally. Only the body changes.
+
+  NOT changed by any build: Yaki women, and the player's own character.
 
 
 KNOWN ISSUES AND LIMITATIONS
@@ -152,19 +207,27 @@ KNOWN ISSUES AND LIMITATIONS
 
 COMPATIBILITY
 
-  - Requires X4: Foundations 9.00 or newer, plus the Cradle of Humanity DLC.
+  - Requires X4: Foundations 9.00 or newer. The Terran builds also require the
+    Cradle of Humanity DLC; the Argon build does not.
   - Modifies no game files; coexists with most mods.
-  - Does NOT conflict with Argon appearance replacers (Rose, Emilie, 2B, ...):
-    those edit the Argon pools, this one edits Terran macros.
-  - DOES conflict with other Terran appearance replacers -- both would be
-    replacing the same 45 macros and the last one loaded wins.
+  - The Terran ADD build sits alongside the Argon appearance replacers (Rose,
+    Emilie, 2B, ...): those edit the Argon pools, this one appends to the Terran
+    and Pioneer pools. It also sits alongside other Terran appearance replacers
+    -- they share the pools, so each one's share of the spawns drops.
+  - The Terran REPLACE build conflicts with other Terran appearance replacers:
+    both would be replacing the same 45 macros and the last one loaded wins.
+  - The ARGON build competes for the same six Argon pools as the other Argon
+    appearance replacers -- whichever loads last is what you see. That is the
+    only sense in which the Argon build "conflicts" with them.
   - Save safe: enable or disable at any time.
 
 
 REQUIREMENTS
 
-  A legitimate copy of X4: Foundations and the Cradle of Humanity DLC.
-  This mod contains only converted assets, no game files.
+  A legitimate copy of X4: Foundations. The two Terran builds also require the
+  Cradle of Humanity DLC (that is where the Terran race comes from); the Argon
+  build is usable without it. These mods contain only converted assets, no game
+  files.
 
 
 AI USAGE
@@ -199,5 +262,6 @@ LEGAL
   Genshin Impact is a trademark of miHoYo / HoYoverse. X4: Foundations is a
   trademark of EGOSOFT. This is an unofficial fan work for personal use and
   contains no game assets from either title. The Lumine model and textures
-  remain the property of miHoYo; the model conversion is by 观海子.
+  remain the property of miHoYo; the model conversion is by 观海
+  (Bilibili: 观海子) and is itself a derivative work.
 ```

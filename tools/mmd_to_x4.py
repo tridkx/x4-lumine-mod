@@ -419,13 +419,17 @@ class MmdAdapter:
     #: number.  (The source is not at fault: its own leg bones sit 0.7-1.0 cm
     #: from the geometry they drive.)
     #:
-    #: Keeping a larger, fairly uniform share restores the splay and keeps each
-    #: joint on its own geometry.  The foot needs slightly more than the thigh
-    #: because the ankle is where the source tapers most (5.84 against the X4
-    #: 17.70); measured after the rebuild: ankle joints 14.2 cm out, feet 27.9
-    #: cm apart, every joint within ~2 cm of the geometry it drives, and the
-    #: bone chain still splaying monotonically outwards (thigh 11.39, calf
-    #: 12.15, foot 14.20) instead of folding back in at the knee.
+    #: What the damping is really setting is the *stride width*, and that is
+    #: what the "catwalk" report is about: a catwalk is two feet landing on one
+    #: line.  Vanilla's women walk with their feet 39.8 cm apart; the strongly
+    #: damped build put them 18.0 cm apart, i.e. inside the hips (23 cm), so
+    #: every step crossed the midline.  The foot geometry follows its bone, so
+    #: the first fix (0.72) only reached 30.5 cm -- still 23% narrower than
+    #: vanilla and still reading as a catwalk.  The foot therefore keeps
+    #: almost all of the travel (0.95) and the calf most of it (0.85), while
+    #: the thigh stays at 0.60: the chain still splays monotonically outwards
+    #: like a Biped chain, the ankles land within ~2 cm of vanilla's 17.70,
+    #: and the mesh is rebuilt from those targets so geometry and bone agree.
     #:
     #: Still well inside the skirt: its narrowest ring (z 40-50) is 24.3 cm
     #: half-width, the wide part 36-42 cm, and this model's leg geometry is
@@ -437,9 +441,9 @@ class MmdAdapter:
     #: earlier project's knees apart).
     LATERAL_DAMP = {
         'Bip01 L Thigh': 0.60, 'Bip01 R Thigh': 0.60,
-        'Bip01 L Calf': 0.65, 'Bip01 R Calf': 0.65,
-        'Bip01 L Foot': 0.72, 'Bip01 R Foot': 0.72,
-        'Bip01 L Toe0': 0.72, 'Bip01 R Toe0': 0.72,
+        'Bip01 L Calf': 0.85, 'Bip01 R Calf': 0.85,
+        'Bip01 L Foot': 0.95, 'Bip01 R Foot': 0.95,
+        'Bip01 L Toe0': 0.95, 'Bip01 R Toe0': 0.95,
     }
 
     def adjust_target(self, x4_bone, src_pos, dst_pos):

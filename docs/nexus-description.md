@@ -6,11 +6,11 @@
 `Genshin Impact's Lumine joins (or replaces) the Terran female NPC models in X4: Foundations.`
 
 **Three files, three shapes** -- pick one; the file name says which is which:
-* `x4_lumine_terran_add_v1.2.zip` -- **add** (the normal build): Lumine joins the
+* `x4_lumine_terran_add_v1.4.zip` -- **add** (the normal build): Lumine joins the
   Terran and Pioneer female appearance pools as one more random candidate.
-* `x4_lumine_terran_replace_v1.2.zip` -- **replace** (test build): every Terran
+* `x4_lumine_terran_replace_v1.4.zip` -- **replace** (test build): every Terran
   woman becomes Lumine, story and mission NPCs included.
-* `x4_lumine_argon_add_v1.2.zip` -- the same model for the **Argon** pools
+* `x4_lumine_argon_add_v1.4.zip` -- the same model for the **Argon** pools
   instead. Can be installed alongside the Terran one.
 
 ---
@@ -31,7 +31,7 @@ the same pools.
 
 WHICH FILE DO I WANT?
 
-  x4_lumine_terran_add_v1.2.zip    <- normal play, start here
+  x4_lumine_terran_add_v1.4.zip    <- normal play, start here
     Lumine JOINS the Terran and Pioneer female appearance pools as one more
     random candidate: 12 pools (six each). Every vanilla model is left in
     place, so the other women keep their own faces, names and voices. She is
@@ -40,12 +40,12 @@ WHICH FILE DO I WANT?
     Story and mission NPCs never come from an appearance pool, so they keep
     their vanilla appearance.
 
-  x4_lumine_terran_replace_v1.2.zip
+  x4_lumine_terran_replace_v1.4.zip
     Lumine REPLACES all 45 Terran-race female NPC macros outright: every Terran
     and Pioneer woman you meet is her, story and mission NPCs included. This is
     the build for inspecting the model everywhere at once.
 
-  x4_lumine_argon_add_v1.2.zip
+  x4_lumine_argon_add_v1.4.zip
     The same model, written into the Argon female pools (6 of them) instead of
     the Terran ones. Meshes, textures and materials are identical -- both races
     share the same body component -- so this file exists purely so Argon women
@@ -55,7 +55,23 @@ WHICH FILE DO I WANT?
 
 
 VERSION
-  1.2 (all three)
+  1.4 (all three)
+
+WHAT CHANGED IN 1.4
+
+  1.4  Fixes the walk.  Lumine used to walk like she was on a catwalk: the
+       feet landed one in front of the other instead of under the hips.  The
+       retarget narrows the source's legs to fit X4's wider bind pose, and
+       that narrowing used to taper along the leg (thigh 0.60, calf 0.30,
+       foot 0.20), which bent the bone chain inwards.  The feet ended up
+       18.0 cm apart against vanilla's 39.8 -- narrower than the hips, so
+       every step crossed the midline.  The damping is now near-uniform
+       (0.60 / 0.85 / 0.95): feet 35.9 cm apart, and the ankle bone sits
+       0.28 cm from the mesh it drives instead of 7.06.
+
+  1.2  Two shapes (add / replace) and an Argon build.  Fixes the skeleton
+       verification for the add build.
+
 
 GAME VERSION
   X4: Foundations 9.00 (built and tested on 9.00)

@@ -288,17 +288,20 @@ def female_pools_with_macros():
 
 def write_content():
     race = RACE['label']
-    mode = ('the only body' if MODE == 'replace'
-            else 'one possible body among the existing ones')
-    desc = ('%s Lumine from Genshin Impact %s for %s female NPCs.'
-            % ('Replaces' if MODE == 'replace' else 'Adds', mode, race))
+    if MODE == 'replace':
+        desc = ('Replaces every %s female NPC body with Lumine from Genshin '
+                'Impact.' % race)
+    else:
+        desc = ('Adds Lumine from Genshin Impact to the %s female NPC '
+                'appearance pools as one possible body among the existing '
+                'ones.' % race)
     cdesc = ('把《原神》的荧%s%s女性 NPC 的外观%s。'
              % ('替换全部' if MODE == 'replace' else '加入',
                 RACE['label_cn'],
                 '（所有该种族女性都是荧）' if MODE == 'replace'
                 else '池：她是随机出现的其中一种，其余女性保持原样'))
     text = '''<?xml version="1.0" encoding="utf-8"?>
-<content id="{id}" name="Lumine (Genshin Impact)" version="120" date="2026-09-24" save="0"
+<content id="{id}" name="Lumine (Genshin Impact)" version="140" date="2026-09-24" save="0"
          description="{desc}">
   <text language="7"  name="Lumine (Genshin Impact)" description="{desc}"/>
   <text language="44" name="Lumine (Genshin Impact)" description="{desc}"/>

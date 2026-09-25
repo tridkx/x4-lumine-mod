@@ -100,9 +100,9 @@ XRCatTool.exe -in work/x4_lumine_terran_add -out work/x4_lumine_terran_add/ext_0
 发布包由工作区的 `work/build_release.py` 统一生成，文件名写清配置：
 
 ```
-x4_lumine_terran_add_v1.4.zip      泰伦/先驱者女性 · 加入外观池（推荐）
-x4_lumine_terran_replace_v1.4.zip  泰伦女性 · 全部替换（含剧情 NPC）
-x4_lumine_argon_add_v1.4.zip       阿贡女性 · 加入外观池
+x4_lumine_mod_terran_add_v1.4.zip      泰伦/先驱者女性 · 加入外观池（推荐）
+x4_lumine_mod_terran_replace_v1.4.zip  泰伦女性 · 全部替换（含剧情 NPC）
+x4_lumine_mod_argon_add_v1.4.zip       阿贡女性 · 加入外观池
 ```
 
 ## 版权

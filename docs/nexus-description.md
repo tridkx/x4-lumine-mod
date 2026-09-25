@@ -6,11 +6,11 @@
 `Genshin Impact's Lumine joins (or replaces) the Terran female NPC models in X4: Foundations.`
 
 **Three files, three shapes** -- pick one; the file name says which is which:
-* `x4_lumine_terran_add_v1.4.zip` -- **add** (the normal build): Lumine joins the
+* `x4_lumine_mod_terran_add_v1.4.zip` -- **add** (the normal build): Lumine joins the
   Terran and Pioneer female appearance pools as one more random candidate.
-* `x4_lumine_terran_replace_v1.4.zip` -- **replace** (test build): every Terran
+* `x4_lumine_mod_terran_replace_v1.4.zip` -- **replace** (test build): every Terran
   woman becomes Lumine, story and mission NPCs included.
-* `x4_lumine_argon_add_v1.4.zip` -- the same model for the **Argon** pools
+* `x4_lumine_mod_argon_add_v1.4.zip` -- the same model for the **Argon** pools
   instead. Can be installed alongside the Terran one.
 
 ---
@@ -45,7 +45,7 @@ textures next to them.
 
 WHICH FILE DO I WANT?
 
-  x4_lumine_terran_add_v1.4.zip    <- normal play, start here
+  x4_lumine_mod_terran_add_v1.4.zip    <- normal play, start here
     Lumine JOINS the Terran and Pioneer female appearance pools as one more
     random candidate: 12 pools (six each). Every vanilla model is left in
     place, so the other women keep their own faces, names and voices. She is
@@ -54,12 +54,12 @@ WHICH FILE DO I WANT?
     Story and mission NPCs never come from an appearance pool, so they keep
     their vanilla appearance.
 
-  x4_lumine_terran_replace_v1.4.zip
+  x4_lumine_mod_terran_replace_v1.4.zip
     Lumine REPLACES all 45 Terran-race female NPC macros outright: every Terran
     and Pioneer woman you meet is her, story and mission NPCs included. This is
     the build for inspecting the model everywhere at once.
 
-  x4_lumine_argon_add_v1.4.zip
+  x4_lumine_mod_argon_add_v1.4.zip
     The same model, written into the Argon female pools (6 of them) instead of
     the Terran ones. Meshes, textures and materials are identical -- both races
     share the same body component -- so this file exists purely so Argon women

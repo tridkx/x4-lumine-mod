@@ -28,6 +28,17 @@ modifies no game files.
 There are three downloads of this mod. Pick one; do not install two that target
 the same pools.
 
+Each archive holds one folder, x4_lumine_<race>_<mode>/, containing exactly the
+three things the game reads:
+
+  content.xml      the mod definition (this one is always a loose file)
+  ext_01.cat       the catalog index
+  ext_01.dat       the data -- models, textures and library XML
+
+Unzip it into X4 Foundations/extensions/ and you are done. The game only ever
+reads content.xml plus the catalog pair, which is why there is no second copy
+of the meshes and textures next to them.
+
 
 WHICH FILE DO I WANT?
 

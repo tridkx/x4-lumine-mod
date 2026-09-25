@@ -47,6 +47,14 @@ Requires X4: Foundations 9.00. The Terran builds also need the Cradle of
 Humanity DLC; the Argon build does not.
 ```
 
+**压缩包里是什么**（三个文件都是同样结构）：
+```
+x4_lumine_<种族>_<形态>/   解压到 X4 Foundations/extensions/ 即可
+    content.xml              mod 定义（必须是裸文件）
+    ext_01.cat               目录索引
+    ext_01.dat               数据：模型 / 贴图 / 库 XML 都在这
+```
+
 **中文版功能列表**（供中文页面用）：
 ```
 荧（原神） - 泰伦女性 NPC 外观

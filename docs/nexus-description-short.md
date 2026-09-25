@@ -49,11 +49,14 @@ Humanity DLC; the Argon build does not.
 
 **压缩包里是什么**（三个文件都是同样结构）：
 ```
-x4_lumine_<种族>_<形态>/   解压到 X4 Foundations/extensions/ 即可
+x4_lumine_mod/             解压到 X4 Foundations/extensions/ 即可
     content.xml              mod 定义（必须是裸文件）
     ext_01.cat               目录索引
     ext_01.dat               数据：模型 / 贴图 / 库 XML 都在这
 ```
+目录固定叫 `x4_lumine_mod`（X4 用目录名匹配 content.xml 里的 id，三种形态共用
+同一个 id）——**区分三个下载文件的是 zip 的文件名**，不是解压出来的目录名。
+
 
 **中文版功能列表**（供中文页面用）：
 ```
